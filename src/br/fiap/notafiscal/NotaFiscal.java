@@ -9,6 +9,8 @@ import java.util.List;
 public class NotaFiscal {
     private List<ItemProduto> listaProduto;
     private Cliente cliente;
+    // true a nota está aberta para novos produtos
+    private boolean status;
 
     public NotaFiscal(Cliente cliente) {
         this.cliente = cliente;
@@ -37,5 +39,13 @@ public class NotaFiscal {
 
     public List<ItemProduto> getListaProduto() {
         return listaProduto;
+    }
+
+    public boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }
