@@ -49,13 +49,23 @@ public class Controle {
                     case 1:
                         comprar();
                         break;
+                    case 3:
+                        removerProduto();
+                        break;
                     case 4:
                         fecharCompra();
+                        break;
                 }
             } catch (Exception e) {
                 showMessageDialog(null, e.getMessage());
             }
         }
+    }
+
+    private void removerProduto() {
+        String nome = showInputDialog("Qual produto será removido? ");
+        Produto produto = new Produto(nome);
+        nf.removerItemProduto(produto);
     }
 
     private void fecharCompra() {
