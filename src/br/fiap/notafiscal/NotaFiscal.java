@@ -2,6 +2,7 @@ package br.fiap.notafiscal;
 
 import br.fiap.cliente.Cliente;
 import br.fiap.item.ItemProduto;
+import br.fiap.produto.Produto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,14 +16,19 @@ public class NotaFiscal {
     public NotaFiscal(Cliente cliente) {
         this.cliente = cliente;
         this.listaProduto = new ArrayList<ItemProduto>();
+        this.status = true;
     }
 
     public void adicionarItemProduto(ItemProduto itemProduto) {
         this.listaProduto.add(itemProduto);
     }
 
-    public void removerItemProduto(ItemProduto itemProduto) {
-        this.listaProduto.remove(itemProduto);
+    public void removerItemProduto(Produto produto) {
+        for(ItemProduto item : listaProduto) {
+            if(item.getProduto().equals(produto)) {
+                listaProduto.remove(item);
+            }
+        }
     }
 
     public double calcularTotal() {
